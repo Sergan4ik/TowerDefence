@@ -8,21 +8,42 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Movable = 0;
-    public const int Position = 1;
-    public const int Speed = 2;
+    public const int Asset = 0;
+    public const int LoggerService = 1;
+    public const int Movable = 2;
+    public const int Position = 3;
+    public const int PositionListener = 4;
+    public const int Rotation = 5;
+    public const int TimeService = 6;
+    public const int Velocity = 7;
+    public const int View = 8;
+    public const int ViewService = 9;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
+        "Asset",
+        "LoggerService",
         "Movable",
         "Position",
-        "Speed"
+        "PositionListener",
+        "Rotation",
+        "TimeService",
+        "Velocity",
+        "View",
+        "ViewService"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Asset),
+        typeof(LoggerServiceComponent),
         typeof(MovableComponent),
         typeof(PositionComponent),
-        typeof(SpeedComponent)
+        typeof(PositionListenerComponent),
+        typeof(RotationComponent),
+        typeof(TimeServiceComponent),
+        typeof(VelocityComponent),
+        typeof(ViewComponent),
+        typeof(ViewServiceComponent)
     };
 }

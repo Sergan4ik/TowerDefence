@@ -1,15 +1,16 @@
 ﻿using Entitas;
-using UnityEngine;
 
 public sealed class MoveSystem : IExecuteSystem
 {
+    private readonly ITimeService _timeService;
     private readonly IGroup<GameEntity> _movableEntities;
     
-    public MoveSystem(Contexts contexts)
+    public MoveSystem(Contexts contexts , ITimeService timeService)
     {
+        _timeService = timeService;
         _movableEntities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Position
             , GameMatcher.Movable
-            , GameMatcher.Speed)
+            , GameMatcher.Velocity)
         );
     }
 
@@ -17,7 +18,7 @@ public sealed class MoveSystem : IExecuteSystem
     {
         foreach (var entity in _movableEntities)
         {
-            entity.position.value += (entity.speed.value * Time.deltaTime);
+            entity.ReplacePosition(entity.position.value + (entity.velocity.speed * _timeService.deltaTime * entity.velocity.direction));
         }
     }
 }
