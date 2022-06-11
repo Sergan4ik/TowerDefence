@@ -8,26 +8,50 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Asset = 0;
-    public const int LoggerService = 1;
-    public const int Movable = 2;
-    public const int Position = 3;
-    public const int PositionListener = 4;
-    public const int Rotation = 5;
-    public const int TimeService = 6;
-    public const int Velocity = 7;
-    public const int View = 8;
-    public const int ViewService = 9;
+    public const int Animator = 0;
+    public const int AnimatorCreator = 1;
+    public const int AnimatorObject = 2;
+    public const int AnimatorOptions = 3;
+    public const int Asset = 4;
+    public const int CrossFadeRequest = 5;
+    public const int Gravity = 6;
+    public const int LoggerService = 7;
+    public const int Movable = 8;
+    public const int PhysicsService = 9;
+    public const int Position = 10;
+    public const int PositionListener = 11;
+    public const int Rotation = 12;
+    public const int RotationListener = 13;
+    public const int SplineFollower = 14;
+    public const int SplineFollowerCreatorService = 15;
+    public const int SplineFollowerObject = 16;
+    public const int SplineFollowerOptions = 17;
+    public const int TimeService = 18;
+    public const int Velocity = 19;
+    public const int View = 20;
+    public const int ViewService = 21;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
+        "Animator",
+        "AnimatorCreator",
+        "AnimatorObject",
+        "AnimatorOptions",
         "Asset",
+        "CrossFadeRequest",
+        "Gravity",
         "LoggerService",
         "Movable",
+        "PhysicsService",
         "Position",
         "PositionListener",
         "Rotation",
+        "RotationListener",
+        "SplineFollower",
+        "SplineFollowerCreatorService",
+        "SplineFollowerObject",
+        "SplineFollowerOptions",
         "TimeService",
         "Velocity",
         "View",
@@ -35,12 +59,24 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnimatorComponent),
+        typeof(AnimatorCreatorComponent),
+        typeof(AnimatorObjectComponent),
+        typeof(AnimatorOptionsComponent),
         typeof(Asset),
+        typeof(CrossFadeRequestComponent),
+        typeof(GravityComponent),
         typeof(LoggerServiceComponent),
         typeof(MovableComponent),
+        typeof(PhysicsServiceComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(RotationComponent),
+        typeof(RotationListenerComponent),
+        typeof(SplineFollowerComponent),
+        typeof(SplineFollowerCreatorServiceComponent),
+        typeof(SplineFollowerObjectComponent),
+        typeof(SplineFollowerOptions),
         typeof(TimeServiceComponent),
         typeof(VelocityComponent),
         typeof(ViewComponent),

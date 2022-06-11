@@ -11,18 +11,16 @@ public partial class GameEntity {
     public VelocityComponent velocity { get { return (VelocityComponent)GetComponent(GameComponentsLookup.Velocity); } }
     public bool hasVelocity { get { return HasComponent(GameComponentsLookup.Velocity); } }
 
-    public void AddVelocity(UnityEngine.Vector3 newDirection, float newSpeed) {
+    public void AddVelocity(UnityEngine.Vector3 newSpeed) {
         var index = GameComponentsLookup.Velocity;
         var component = (VelocityComponent)CreateComponent(index, typeof(VelocityComponent));
-        component.direction = newDirection;
         component.speed = newSpeed;
         AddComponent(index, component);
     }
 
-    public void ReplaceVelocity(UnityEngine.Vector3 newDirection, float newSpeed) {
+    public void ReplaceVelocity(UnityEngine.Vector3 newSpeed) {
         var index = GameComponentsLookup.Velocity;
         var component = (VelocityComponent)CreateComponent(index, typeof(VelocityComponent));
-        component.direction = newDirection;
         component.speed = newSpeed;
         ReplaceComponent(index, component);
     }

@@ -48,3 +48,48 @@ public sealed class RegisterViewService : IInitializeSystem
         _contexts.game.ReplaceViewService(_viewService);
     }
 }
+public class RegisterGravityService : IInitializeSystem
+{
+    private readonly Contexts _contexts;
+    private readonly IGravityService _gravityService;
+    public RegisterGravityService(Contexts contexts, IGravityService gravityService)
+    {
+        _gravityService = gravityService;
+        _contexts = contexts;
+    }
+
+    public void Initialize()
+    {
+        _contexts.game.ReplacePhysicsService(_gravityService);
+    }
+}
+public class RegisterSplineFollowerService : IInitializeSystem
+{
+    private readonly Contexts _contexts;
+    private readonly ISplineFollowerCreatorService _splineFollowerCreatorService;
+    public RegisterSplineFollowerService(Contexts contexts, ISplineFollowerCreatorService splineFollowerCreatorService)
+    {
+        _splineFollowerCreatorService = splineFollowerCreatorService;
+        _contexts = contexts;
+    }
+
+    public void Initialize()
+    {
+        _contexts.game.ReplaceSplineFollowerCreatorService(_splineFollowerCreatorService);
+    }
+}
+public class RegisterAnimatorCreatorService : IInitializeSystem
+{
+    private readonly Contexts _contexts;
+    private readonly IAnimatorCreatorService _splineFollowerCreatorService;
+    public RegisterAnimatorCreatorService(Contexts contexts, IAnimatorCreatorService splineFollowerCreatorService)
+    {
+        _splineFollowerCreatorService = splineFollowerCreatorService;
+        _contexts = contexts;
+    }
+
+    public void Initialize()
+    {
+        _contexts.game.ReplaceAnimatorCreator(_splineFollowerCreatorService);
+    }
+}

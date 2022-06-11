@@ -11,14 +11,14 @@ public partial class GameEntity {
     public ViewComponent view { get { return (ViewComponent)GetComponent(GameComponentsLookup.View); } }
     public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
 
-    public void AddView(IViewController newInstance) {
+    public void AddView(UnityGameView newInstance) {
         var index = GameComponentsLookup.View;
         var component = (ViewComponent)CreateComponent(index, typeof(ViewComponent));
         component.instance = newInstance;
         AddComponent(index, component);
     }
 
-    public void ReplaceView(IViewController newInstance) {
+    public void ReplaceView(UnityGameView newInstance) {
         var index = GameComponentsLookup.View;
         var component = (ViewComponent)CreateComponent(index, typeof(ViewComponent));
         component.instance = newInstance;

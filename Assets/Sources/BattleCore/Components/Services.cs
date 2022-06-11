@@ -16,3 +16,18 @@ public sealed class ViewServiceComponent : IComponent
 {
     public IViewService instance;
 }
+[Unique]
+public sealed class PhysicsServiceComponent : IComponent
+{
+    public IGravityService instance;
+}
+[Unique]
+public sealed class SplineFollowerCreatorServiceComponent : IComponent
+{
+    public ISplineFollowerCreatorService instance;
+}
+[Unique]
+public sealed class AnimatorCreatorComponent : IComponent
+{
+    public IAnimatorCreatorService instance;
+}

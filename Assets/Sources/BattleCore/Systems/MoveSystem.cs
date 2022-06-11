@@ -18,7 +18,7 @@ public sealed class MoveSystem : IExecuteSystem
     {
         foreach (var entity in _movableEntities)
         {
-            entity.ReplacePosition(entity.position.value + (entity.velocity.speed * _timeService.deltaTime * entity.velocity.direction));
+            entity.ReplacePosition(entity.position.value + (entity.velocity.speed * _timeService.deltaTime));
         }
     }
 }
