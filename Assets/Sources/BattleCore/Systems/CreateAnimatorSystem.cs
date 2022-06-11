@@ -25,6 +25,8 @@ public sealed class CreateAnimatorSystem : ReactiveSystem<GameEntity>
         foreach (var entity in entities)
         {
             entity.ReplaceAnimatorObject(_creatorService.CreateAnimator(entity.animatorOptions , entity.view));
+            entity.RemoveAnimatorOptions();
+            entity.needAnimator = false;
         }
     }
 }

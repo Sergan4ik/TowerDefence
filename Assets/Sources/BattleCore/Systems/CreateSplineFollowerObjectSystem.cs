@@ -32,6 +32,9 @@ public sealed class CreateSplineFollowerObjectSystem : ReactiveSystem<GameEntity
             newSplineFollowerObject.SetOffset(entity.splineFollowerOptions.offset);
             
             entity.ReplaceSplineFollowerObject(newSplineFollowerObject);
+            
+            entity.RemoveSplineFollowerOptions();
+            entity.needSplineFollower = false;
         }
     }
 }

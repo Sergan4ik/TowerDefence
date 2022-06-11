@@ -18,6 +18,7 @@ public sealed class GameSystems : Feature
         Add(new MoveSystem(contexts, services.timeService));
         Add(new GravitySystem(contexts , services.gravityService , services.timeService));
         Add(new SplineFollowerSystem(contexts));
+        Add(new SplineAnimationSystem(contexts));
     }
 }
 
@@ -126,7 +127,7 @@ public class BattleProcessor : MonoBehaviour
         var e_1 = Contexts.sharedInstance.game.CreateEntity();
         e_1.needSplineFollower = true;
         e_1.isMovable = true;
-        e_1.AddSplineFollowerOptions(10, new Vector3(offset , 0 ,0));
+        e_1.AddSplineFollowerOptions(5, new Vector3(offset , 0 ,0));
         e_1.AddAsset("Char1", "");
         e_1.AddPosition(new Vector3());
         e_1.AddRotation(Quaternion.identity);

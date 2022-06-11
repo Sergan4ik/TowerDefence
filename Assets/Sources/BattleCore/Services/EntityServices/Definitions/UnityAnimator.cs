@@ -11,6 +11,8 @@ public class UnityAnimator : IAnimator
     
     public void CrossFadeTo(string animationStateName, float crossFadeTime)
     {
-        _animator.CrossFade(animationStateName , crossFadeTime);    
+        if (_animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(animationStateName) || _animator.IsInTransition(0))
+            return;
+        _animator.CrossFadeInFixedTime(animationStateName , crossFadeTime);    
     }
 }

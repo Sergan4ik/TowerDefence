@@ -9,6 +9,7 @@ public class DreamteckSplineFollowerObject : ISplineFollowerObject
     public DreamteckSplineFollowerObject(SplineFollower splineFollower)
     {
         _splineFollower = splineFollower;
+        splineFollower.onEndReached += (d => _isEndReached = true);
     }
 
     public Vector3 Position => _splineFollower.transform.position;
@@ -19,6 +20,10 @@ public class DreamteckSplineFollowerObject : ISplineFollowerObject
         get => _splineFollower.followSpeed;
         set => _splineFollower.followSpeed = value;
     }
+
+    public bool IsEndReached => _isEndReached;
+
+    private bool _isEndReached = false;
 
     public void SetOffset(Vector3 offset)
     {
