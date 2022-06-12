@@ -8,3 +8,4 @@ namespace Utils
         public static string TestJson = $"{Application.dataPath}/Settings/Game/test.json";
     }
 }
+

@@ -22,16 +22,19 @@ public static class GameComponentsLookup {
     public const int PositionListener = 11;
     public const int Rotation = 12;
     public const int RotationListener = 13;
-    public const int SplineFollower = 14;
-    public const int SplineFollowerCreatorService = 15;
-    public const int SplineFollowerObject = 16;
-    public const int SplineFollowerOptions = 17;
-    public const int TimeService = 18;
-    public const int Velocity = 19;
-    public const int View = 20;
-    public const int ViewService = 21;
+    public const int SetBool = 14;
+    public const int SetFloat = 15;
+    public const int SetTrigger = 16;
+    public const int SplineFollower = 17;
+    public const int SplineFollowerCreatorService = 18;
+    public const int SplineFollowerObject = 19;
+    public const int SplineFollowerOptions = 20;
+    public const int TimeService = 21;
+    public const int Velocity = 22;
+    public const int View = 23;
+    public const int ViewService = 24;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "Animator",
@@ -48,6 +51,9 @@ public static class GameComponentsLookup {
         "PositionListener",
         "Rotation",
         "RotationListener",
+        "SetBool",
+        "SetFloat",
+        "SetTrigger",
         "SplineFollower",
         "SplineFollowerCreatorService",
         "SplineFollowerObject",
@@ -73,6 +79,9 @@ public static class GameComponentsLookup {
         typeof(PositionListenerComponent),
         typeof(RotationComponent),
         typeof(RotationListenerComponent),
+        typeof(SetBoolComponent),
+        typeof(SetFloatComponent),
+        typeof(SetTriggerComponent),
         typeof(SplineFollowerComponent),
         typeof(SplineFollowerCreatorServiceComponent),
         typeof(SplineFollowerObjectComponent),

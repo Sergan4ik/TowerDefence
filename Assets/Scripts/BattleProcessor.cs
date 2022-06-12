@@ -19,6 +19,7 @@ public sealed class GameSystems : Feature
         Add(new GravitySystem(contexts , services.gravityService , services.timeService));
         Add(new SplineFollowerSystem(contexts));
         Add(new SplineAnimationSystem(contexts));
+        Add(new AnimatorSystem(contexts));
     }
 }
 
@@ -152,6 +153,7 @@ public class BattleProcessor : MonoBehaviour
     private void CleanUpSystems()
     {
         _logSystems.Cleanup();
+        _gameSystems.Cleanup();
     }
 
     private void ExecuteSystems()

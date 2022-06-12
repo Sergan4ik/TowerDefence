@@ -16,9 +16,14 @@ public sealed class SplineAnimationSystem : IExecuteSystem
         foreach (var entity in toAnimate)
         {
             if (entity.splineFollowerObject.splineFollowerObject.IsEndReached)
-                entity.animatorObject.instance.CrossFadeTo("Idle" , 0.5f);
+            {
+                entity.ReplaceSetBool("Run", false);
+            }
             else
-                entity.animatorObject.instance.CrossFadeTo("Run" , 0.5f);
+            {
+                entity.ReplaceSetBool("Run", true);
+                entity.ReplaceSetFloat("Run_Speed" , entity.splineFollowerObject.splineFollowerObject.FollowSpeed / 3);
+            }
         }
     }
 }
