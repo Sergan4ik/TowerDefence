@@ -51,7 +51,7 @@ public class BattleProcessor : MonoBehaviour
     private GameSystems _gameSystems;
     private LogSystems _logSystems;
     private ServiceRegistrationSystems _serviceRegistration;
-    
+
     private void Start()
     {
         Setup();
@@ -86,8 +86,8 @@ public class BattleProcessor : MonoBehaviour
         //e.AddAsset("Zombie1", "");
         //e.useGravity = true;
     
-        //StartCoroutine(SpawnWave());
-        CreateZombie(0);
+        StartCoroutine(SpawnWave());
+        //CreateZombie(0);
         
         //var e1 = Contexts.sharedInstance.log.CreateEntity();
         //e1.AddLogMessage($"{Contexts.sharedInstance.game.timeService.instance.deltaTime}");
@@ -98,9 +98,9 @@ public class BattleProcessor : MonoBehaviour
     IEnumerator SpawnWave()
     {
         int cnt = 100;
-        var waitForSeconds = new WaitForSeconds(0.6f);
-        var forSeconds = new WaitForSeconds(0.15f);
-        var spawnWave = new WaitForSeconds(0.03f);
+        var waitForSeconds = new WaitForSeconds(0.2f);
+        var forSeconds = new WaitForSeconds(0.05f);
+        var spawnWave = new WaitForSeconds(0.01f);
         
         for (int i = 0; i < cnt; ++i)
         {
@@ -128,7 +128,7 @@ public class BattleProcessor : MonoBehaviour
         var e_1 = Contexts.sharedInstance.game.CreateEntity();
         e_1.needSplineFollower = true;
         e_1.isMovable = true;
-        e_1.AddSplineFollowerOptions(5, new Vector3(offset , 0 ,0));
+        e_1.AddSplineFollowerOptions(Random.Range(3 , 10), new Vector3(offset , 0 ,0));
         e_1.AddAsset("Char1", "");
         e_1.AddPosition(new Vector3());
         e_1.AddRotation(Quaternion.identity);
