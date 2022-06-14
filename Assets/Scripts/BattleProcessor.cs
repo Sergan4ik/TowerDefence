@@ -13,12 +13,17 @@ public sealed class GameSystems : Feature
         Add(new LoadAssetSystem(contexts, services.viewService));
         Add(new CreateSplineFollowerObjectSystem(contexts, services.splineFollowerCreatorService));
         Add(new CreateAnimatorSystem(contexts, services.animatorCreatorService));
+        
         Add(new RotationEventSystem(contexts));
         Add(new PositionEventSystem(contexts));
+        
         Add(new MoveSystem(contexts, services.timeService));
         Add(new GravitySystem(contexts , services.gravityService , services.timeService));
+        
         Add(new SplineFollowerSystem(contexts));
         Add(new SplineAnimationSystem(contexts));
+        Add(new PathRedirectSystem(contexts));
+        
         Add(new AnimatorSystem(contexts));
     }
 }
@@ -41,11 +46,14 @@ public sealed class ServiceRegistrationSystems : Feature
         Add(new RegisterGravityService(contexts, services.gravityService));
         Add(new RegisterSplineFollowerService(contexts, services.splineFollowerCreatorService));
         Add(new RegisterAnimatorCreatorService(contexts, services.animatorCreatorService));
+        Add(new RegisterPathConfig(contexts, services.graphCreatorService));
     }
 }
 
 public class BattleProcessor : MonoBehaviour
 {
+    [SerializeField]
+    private PathSetup pathSetup;
     [SerializeField]
     private SplineComputer splineComputer;
     private GameSystems _gameSystems;
@@ -64,8 +72,9 @@ public class BattleProcessor : MonoBehaviour
             , new UnityLogger()
             , new UnityViewService()
             , new UnityGravity()
-            , new DreamteckSplineFollowerCreatorCreatorService(splineComputer)
+            , new DreamteckSplineFollowerCreatorCreatorService(Contexts.sharedInstance , splineComputer)
             , new UnityAnimatorCreator()
+            , new GraphCreatorServiceService(pathSetup)
         );
         
         _serviceRegistration = new ServiceRegistrationSystems(Contexts.sharedInstance, services);

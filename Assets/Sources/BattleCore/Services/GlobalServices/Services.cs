@@ -6,8 +6,9 @@
     public readonly IGravityService gravityService;
     public readonly ISplineFollowerCreatorService splineFollowerCreatorService;
     public readonly IAnimatorCreatorService animatorCreatorService;
+    public readonly GraphCreatorServiceService graphCreatorService;
 
-    public Services(ITimeService timeService , ILoggerService loggerService , IViewService viewService , IGravityService gravityService , ISplineFollowerCreatorService splineFollowerCreatorService , IAnimatorCreatorService animatorCreatorService)
+    public Services(ITimeService timeService , ILoggerService loggerService , IViewService viewService , IGravityService gravityService , ISplineFollowerCreatorService splineFollowerCreatorService , IAnimatorCreatorService animatorCreatorService , GraphCreatorServiceService graphCreatorService)
     {
         this.timeService = timeService;
         this.loggerService = loggerService;
@@ -15,5 +16,6 @@
         this.gravityService = gravityService;
         this.splineFollowerCreatorService = splineFollowerCreatorService;
         this.animatorCreatorService = animatorCreatorService;
+        this.graphCreatorService = graphCreatorService;
     }
 }

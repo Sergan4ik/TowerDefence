@@ -32,4 +32,9 @@ public class DreamteckSplineFollowerObject : ISplineFollowerObject
         _splineFollower.offsetModifier.keys.Last().centerStart = 0;
         _splineFollower.offsetModifier.keys.Last().centerEnd = 1;
     }
+
+    public void Redirect(int toNode, string bySpline)
+    {
+        throw new System.NotImplementedException();
+    }
 }

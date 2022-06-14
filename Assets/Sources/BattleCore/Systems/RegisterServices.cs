@@ -93,3 +93,20 @@ public class RegisterAnimatorCreatorService : IInitializeSystem
         _contexts.game.ReplaceAnimatorCreator(_splineFollowerCreatorService);
     }
 }
+public sealed class RegisterPathConfig : IInitializeSystem
+{
+    private readonly Contexts _contexts;
+    private readonly IGraphCreatorService _graphCreatorServiceService;
+
+    public RegisterPathConfig(Contexts contexts , IGraphCreatorService graphCreatorServiceService)
+    {
+        _contexts = contexts;
+        _graphCreatorServiceService = graphCreatorServiceService;
+    }
+
+
+    public void Initialize()
+    {
+        _contexts.game.SetPathConfig(_graphCreatorServiceService.AllPaths);
+    }
+}

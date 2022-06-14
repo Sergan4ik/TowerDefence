@@ -17,24 +17,27 @@ public static class GameComponentsLookup {
     public const int Gravity = 6;
     public const int LoggerService = 7;
     public const int Movable = 8;
-    public const int PhysicsService = 9;
-    public const int Position = 10;
-    public const int PositionListener = 11;
-    public const int Rotation = 12;
-    public const int RotationListener = 13;
-    public const int SetBool = 14;
-    public const int SetFloat = 15;
-    public const int SetTrigger = 16;
-    public const int SplineFollower = 17;
-    public const int SplineFollowerCreatorService = 18;
-    public const int SplineFollowerObject = 19;
-    public const int SplineFollowerOptions = 20;
-    public const int TimeService = 21;
-    public const int Velocity = 22;
-    public const int View = 23;
-    public const int ViewService = 24;
+    public const int Path = 9;
+    public const int PathConfig = 10;
+    public const int PhysicsService = 11;
+    public const int Position = 12;
+    public const int PositionListener = 13;
+    public const int RedirectPath = 14;
+    public const int Rotation = 15;
+    public const int RotationListener = 16;
+    public const int SetBool = 17;
+    public const int SetFloat = 18;
+    public const int SetTrigger = 19;
+    public const int SplineFollower = 20;
+    public const int SplineFollowerCreatorService = 21;
+    public const int SplineFollowerObject = 22;
+    public const int SplineFollowerOptions = 23;
+    public const int TimeService = 24;
+    public const int Velocity = 25;
+    public const int View = 26;
+    public const int ViewService = 27;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
         "Animator",
@@ -46,9 +49,12 @@ public static class GameComponentsLookup {
         "Gravity",
         "LoggerService",
         "Movable",
+        "Path",
+        "PathConfig",
         "PhysicsService",
         "Position",
         "PositionListener",
+        "RedirectPath",
         "Rotation",
         "RotationListener",
         "SetBool",
@@ -74,9 +80,12 @@ public static class GameComponentsLookup {
         typeof(GravityComponent),
         typeof(LoggerServiceComponent),
         typeof(MovableComponent),
+        typeof(PathComponent),
+        typeof(PathConfigComponent),
         typeof(PhysicsServiceComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
+        typeof(RedirectPathComponent),
         typeof(RotationComponent),
         typeof(RotationListenerComponent),
         typeof(SetBoolComponent),

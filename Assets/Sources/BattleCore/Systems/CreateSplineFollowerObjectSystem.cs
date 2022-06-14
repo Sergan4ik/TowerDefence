@@ -26,7 +26,7 @@ public sealed class CreateSplineFollowerObjectSystem : ReactiveSystem<GameEntity
     {
         foreach (var entity in entities)
         {
-            var newSplineFollowerObject = _splineFollowerCreatorService.InitializeSplineFollower(_contexts, entity);
+            var newSplineFollowerObject = _splineFollowerCreatorService.InitializeSplineFollower(entity);
             
             newSplineFollowerObject.FollowSpeed = entity.splineFollowerOptions.speed;
             newSplineFollowerObject.SetOffset(entity.splineFollowerOptions.offset);

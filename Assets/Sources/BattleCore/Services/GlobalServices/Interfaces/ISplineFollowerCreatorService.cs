@@ -2,5 +2,5 @@
 
 public interface ISplineFollowerCreatorService
 {
-    public ISplineFollowerObject InitializeSplineFollower(Contexts contexts, Entity entity);
+    public ISplineFollowerObject InitializeSplineFollower(GameEntity entity);
 }
