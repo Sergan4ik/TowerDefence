@@ -27,7 +27,7 @@ public class DreamteckSplineFollowerObject : ISplineFollowerObject
         set => _splineFollower.followSpeed = value;
     }
 
-    public bool IsEndReached => _isEndReached;
+    public bool IsEndReached => _entity.path.currentStage == _context.pathConfig.pathVariants[_entity.path.pathNumber].Count;
 
     private bool _isEndReached = false;
 

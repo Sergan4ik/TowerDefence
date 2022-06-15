@@ -57,17 +57,33 @@ public class GraphCreatorService : IGraphCreatorService
                 var edge = graph[currentNode][index];
                 if (index == 0)
                 {
-                    paths[currentQueue].Add((edge.To , edge.SplineName));
+                    SetSplineToNodeComeFrom(paths[currentQueue]);
+                    
+                    paths[currentQueue].Add((edge.To , ""));
                 }
                 else
                 {
                     var list = paths[currentQueue].SkipLast(1).ToList();
-                    list.Add((edge.To ,edge.SplineName));
-                    paths.Add(list);
-                    pointerList.Add(list.Count - 1);
+                    
+                    SetSplineToNodeComeFrom(list);
+                    CreateNewPathFromLastNode(list);
                 }
 
                 incomeTimes[edge.To]++;
+
+                void SetSplineToNodeComeFrom(List<(int, string)> list)
+                {
+                    var newValue = list[^1];
+                    newValue.Item2 = edge.SplineName;
+                    list[^1] = newValue;
+                }
+
+                void CreateNewPathFromLastNode(List<(int, string)> list)
+                {
+                    list.Add((edge.To, ""));
+                    paths.Add(list);
+                    pointerList.Add(list.Count - 1);
+                }
             }
 
             pointerList[currentQueue]++;

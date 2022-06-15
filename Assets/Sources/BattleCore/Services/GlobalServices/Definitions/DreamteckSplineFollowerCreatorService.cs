@@ -26,17 +26,24 @@ public class DreamteckSplineFollowerCreatorService : ISplineFollowerCreatorServi
         
         var follower = gm.AddComponent<SplineFollower>();
         follower.spline = _pathGraph.splines.First(s =>
-            _contexts.game.pathConfig.pathVariants[entity.path.pathNumber][1].Item2 == s.name);
+            _contexts.game.pathConfig.pathVariants[entity.path.pathNumber][0].Item2 == s.name);
         //TODO MAKE UNSUBSCRIBE SYSTEM
         follower.onNode += passed => OnNodeReaction(entity , passed);
-        //entity.requireRedirectPath = true;
         return new DreamteckSplineFollowerObject(follower , entity , _contexts.game , _pathGraph);
     }
 
     private void OnNodeReaction(GameEntity entity , List<SplineTracer.NodeConnection> passed)
     {
         if (passed.Count > 0)
-            if (passed[0].node != _pathGraph.nodes[_contexts.game.pathConfig.pathVariants[entity.path.pathNumber][entity.path.currentStage].Item1 - 1])            
+        {
+            var node = passed[0].node;
+            int passedNodeIdx = _pathGraph.nodes.IndexOf(node);
+            var pathIdx = entity.path.pathNumber;
+            var stage = entity.path.currentStage;
+            if (passedNodeIdx == _contexts.game.pathConfig.pathVariants[pathIdx][stage].Item1)
+            {
                 entity.requireRedirectPath = true;
+            }
+        }
     }
 }

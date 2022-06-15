@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using Dreamteck.Splines;
-using Entitas;
-using Unity.VisualScripting;
+﻿using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -87,7 +83,8 @@ public class BattleProcessor : MonoBehaviour
     private void CreateTestEntities()
     {
         //StartCoroutine(SpawnWave());
-        CreateZombie(0);
+        CreateZombie(0 , 6);
+        //TestAllPaths();
     }
 
     IEnumerator SpawnWave()
@@ -100,7 +97,7 @@ public class BattleProcessor : MonoBehaviour
         for (int i = 0; i < cnt; ++i)
         {
             float offset = Random.Range(-3, 3);
-            CreateZombie(offset);
+            CreateZombie(offset , Random.Range(0 , 5));
 
             var rand = (int)Random.Range(0, 3) % 3;
             if (rand == 0)
@@ -118,18 +115,26 @@ public class BattleProcessor : MonoBehaviour
         }
     }
 
-    private void CreateZombie(float offset)
+    private void TestAllPaths()
+    {
+        var creator = new GraphCreatorService(pathSetup);
+        int pathsCount = creator.AllPaths.Count;
+        for(int i = 0; i < pathsCount; ++i)
+            CreateZombie(0 , i);
+    }
+    
+    private void CreateZombie(float offset , int pathNumber)
     {
         var e_1 = Contexts.sharedInstance.game.CreateEntity();
         e_1.needSplineFollower = true;
         e_1.isMovable = true;
-        e_1.AddSplineFollowerOptions(1, new Vector3(offset , 0 ,0));
+        e_1.AddSplineFollowerOptions(7, new Vector3(offset , 0 ,0));
         e_1.AddAsset("Char1", "");
         e_1.AddPosition(new Vector3());
         e_1.AddRotation(Quaternion.identity);
         e_1.needAnimator = true;
         e_1.AddAnimatorOptions(0);
-        e_1.AddPath(13 , 0);
+        e_1.AddPath(pathNumber , 0);
     }
 
     private void InitializeSystems()
