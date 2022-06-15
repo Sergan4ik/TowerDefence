@@ -6965,6 +6965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f305b5d6124ecab00fb76c531b2af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathSetup: {fileID: 1568039420}
   splineComputer: {fileID: 1256857030}
 --- !u!1001 &693783782
 PrefabInstance:

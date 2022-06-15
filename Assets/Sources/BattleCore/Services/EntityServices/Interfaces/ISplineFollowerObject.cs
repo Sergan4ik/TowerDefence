@@ -7,5 +7,5 @@ public interface ISplineFollowerObject
     public float FollowSpeed { get; set; }
     public void SetOffset(Vector3 offset);
     public bool IsEndReached { get; }
-    public void Redirect(int toNode, string bySpline);
+    public void Redirect(int fromNode, string bySpline);
 }

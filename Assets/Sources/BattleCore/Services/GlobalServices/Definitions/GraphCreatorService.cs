@@ -2,11 +2,11 @@
 using System.Linq;
 using Dreamteck.Splines;
 
-public class GraphCreatorServiceService : IGraphCreatorService
+public class GraphCreatorService : IGraphCreatorService
 {
     private readonly PathSetup _pathSetup;
 
-    public GraphCreatorServiceService(PathSetup pathSetup)
+    public GraphCreatorService(PathSetup pathSetup)
     {
         _pathSetup = pathSetup;
     }

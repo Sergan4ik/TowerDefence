@@ -12,7 +12,7 @@ public class GraphCreatorTest : MonoBehaviour
 
     private void Start()
     {
-        var creator = new GraphCreatorServiceService(_pathSetup);
+        var creator = new GraphCreatorService(_pathSetup);
         Paths = creator.AllPaths;
     }
 }

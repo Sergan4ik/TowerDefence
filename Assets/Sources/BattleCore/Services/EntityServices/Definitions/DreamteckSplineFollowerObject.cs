@@ -5,10 +5,16 @@ using UnityEngine;
 public class DreamteckSplineFollowerObject : ISplineFollowerObject
 {
     private readonly SplineFollower _splineFollower;
+    private readonly GameEntity _entity;
+    private readonly GameContext _context;
+    private readonly PathSetup _path;
 
-    public DreamteckSplineFollowerObject(SplineFollower splineFollower)
+    public DreamteckSplineFollowerObject(SplineFollower splineFollower, GameEntity entity , GameContext context , PathSetup path)
     {
         _splineFollower = splineFollower;
+        _entity = entity;
+        _context = context;
+        _path = path;
         splineFollower.onEndReached += (d => _isEndReached = true);
     }
 
@@ -33,8 +39,12 @@ public class DreamteckSplineFollowerObject : ISplineFollowerObject
         _splineFollower.offsetModifier.keys.Last().centerEnd = 1;
     }
 
-    public void Redirect(int toNode, string bySpline)
+    public void Redirect(int fromNode, string bySpline)
     {
-        throw new System.NotImplementedException();
+        Node.Connection from = _path.nodes[fromNode].GetConnections().First(c => c.spline.name == bySpline);
+        _splineFollower.spline = from.spline;
+        _splineFollower.RebuildImmediate();
+        double startpercent = _splineFollower.ClipPercent(from.spline.GetPointPercent(from.pointIndex));
+        _splineFollower.SetPercent(startpercent);
     }
 }

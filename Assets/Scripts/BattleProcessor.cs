@@ -54,8 +54,6 @@ public class BattleProcessor : MonoBehaviour
 {
     [SerializeField]
     private PathSetup pathSetup;
-    [SerializeField]
-    private SplineComputer splineComputer;
     private GameSystems _gameSystems;
     private LogSystems _logSystems;
     private ServiceRegistrationSystems _serviceRegistration;
@@ -72,9 +70,9 @@ public class BattleProcessor : MonoBehaviour
             , new UnityLogger()
             , new UnityViewService()
             , new UnityGravity()
-            , new DreamteckSplineFollowerCreatorCreatorService(Contexts.sharedInstance , splineComputer)
+            , new DreamteckSplineFollowerCreatorService(Contexts.sharedInstance , pathSetup)
             , new UnityAnimatorCreator()
-            , new GraphCreatorServiceService(pathSetup)
+            , new GraphCreatorService(pathSetup)
         );
         
         _serviceRegistration = new ServiceRegistrationSystems(Contexts.sharedInstance, services);
@@ -88,20 +86,8 @@ public class BattleProcessor : MonoBehaviour
 
     private void CreateTestEntities()
     {
-        //var e = Contexts.sharedInstance.game.CreateEntity();
-        //e.AddPosition(new Vector3(0, 1, -3));
-        //e.isMovable = true;
-        //e.AddVelocity(new Vector3(0, 0, -3));
-        //e.AddAsset("Zombie1", "");
-        //e.useGravity = true;
-    
-        StartCoroutine(SpawnWave());
-        //CreateZombie(0);
-        
-        //var e1 = Contexts.sharedInstance.log.CreateEntity();
-        //e1.AddLogMessage($"{Contexts.sharedInstance.game.timeService.instance.deltaTime}");
-        //e1.AddLogWarning("Warning");
-        //e1.AddLogError("Error");
+        //StartCoroutine(SpawnWave());
+        CreateZombie(0);
     }
 
     IEnumerator SpawnWave()
@@ -137,12 +123,13 @@ public class BattleProcessor : MonoBehaviour
         var e_1 = Contexts.sharedInstance.game.CreateEntity();
         e_1.needSplineFollower = true;
         e_1.isMovable = true;
-        e_1.AddSplineFollowerOptions(Random.Range(3 , 10), new Vector3(offset , 0 ,0));
+        e_1.AddSplineFollowerOptions(1, new Vector3(offset , 0 ,0));
         e_1.AddAsset("Char1", "");
         e_1.AddPosition(new Vector3());
         e_1.AddRotation(Quaternion.identity);
         e_1.needAnimator = true;
         e_1.AddAnimatorOptions(0);
+        e_1.AddPath(13 , 0);
     }
 
     private void InitializeSystems()

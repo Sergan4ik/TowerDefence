@@ -19,7 +19,7 @@ public sealed class CreateSplineFollowerObjectSystem : ReactiveSystem<GameEntity
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.needSplineFollower && !entity.hasSplineFollowerObject;
+        return entity.needSplineFollower && !entity.hasSplineFollowerObject && entity.hasPath;
     }
 
     protected override void Execute(List<GameEntity> entities)

@@ -30,13 +30,15 @@ public sealed class PathRedirectSystem : ReactiveSystem<GameEntity>
             var path = entity.path;
             if (path.currentStage == _contexts.game.pathConfig.pathVariants[path.currentStage].Count - 1) // last stage now
                 continue;
+
+            var previousPathStage = _contexts.game.pathConfig.pathVariants[path.pathNumber][path.currentStage];
             
             entity.ReplacePath(path.pathNumber , path.currentStage + 1);
             path = entity.path;
             
             var newPathStage = _contexts.game.pathConfig.pathVariants[path.pathNumber][path.currentStage];
             
-            entity.splineFollowerObject.splineFollowerObject.Redirect(newPathStage.Item1 , newPathStage.Item2);
+            entity.splineFollowerObject.splineFollowerObject.Redirect(previousPathStage.Item1 , newPathStage.Item2);
         }
     }
 }
