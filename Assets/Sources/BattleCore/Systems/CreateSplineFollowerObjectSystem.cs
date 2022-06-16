@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 public sealed class CreateSplineFollowerObjectSystem : ReactiveSystem<GameEntity>
 {
@@ -29,6 +30,7 @@ public sealed class CreateSplineFollowerObjectSystem : ReactiveSystem<GameEntity
             var newSplineFollowerObject = _splineFollowerCreatorService.InitializeSplineFollower(entity);
             
             newSplineFollowerObject.FollowSpeed = entity.splineFollowerOptions.speed;
+            //newSplineFollowerObject.WrapMode = entity.splineFollowerOptions.wrapMode;
             newSplineFollowerObject.SetOffset(entity.splineFollowerOptions.offset);
             
             entity.ReplaceSplineFollowerObject(newSplineFollowerObject);

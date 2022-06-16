@@ -107,6 +107,6 @@ public sealed class RegisterPathConfig : IInitializeSystem
 
     public void Initialize()
     {
-        _contexts.game.SetPathConfig(_graphCreatorServiceService.AllPaths);
+        _contexts.game.SetLevelMap(_graphCreatorServiceService.AllPaths);
     }
 }

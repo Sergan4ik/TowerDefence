@@ -15,21 +15,23 @@ public class DreamteckSplineFollowerObject : ISplineFollowerObject
         _entity = entity;
         _context = context;
         _path = path;
-        splineFollower.onEndReached += (d => _isEndReached = true);
     }
 
     public Vector3 Position => _splineFollower.transform.position;
     public Quaternion Rotation => _splineFollower.transform.rotation;
-    
+
+    public int WrapMode
+    {
+        get => (int)_splineFollower.wrapMode;
+        set => _splineFollower.wrapMode = (SplineFollower.Wrap)value;
+    }
     public float FollowSpeed
     {
         get => _splineFollower.followSpeed;
         set => _splineFollower.followSpeed = value;
     }
 
-    public bool IsEndReached => _entity.path.currentStage == _context.pathConfig.pathVariants[_entity.path.pathNumber].Count;
-
-    private bool _isEndReached = false;
+    public bool IsEndReached => _entity.path.currentStage == _context.levelMap.pathVariants[_entity.path.pathNumber].Count;
 
     public void SetOffset(Vector3 offset)
     {

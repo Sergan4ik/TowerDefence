@@ -15,29 +15,30 @@ public static class GameComponentsLookup {
     public const int Asset = 4;
     public const int CrossFadeRequest = 5;
     public const int Gravity = 6;
-    public const int LoggerService = 7;
-    public const int Movable = 8;
-    public const int Path = 9;
-    public const int PathConfig = 10;
-    public const int PhysicsService = 11;
-    public const int Position = 12;
-    public const int PositionListener = 13;
-    public const int RedirectPath = 14;
-    public const int Rotation = 15;
-    public const int RotationListener = 16;
-    public const int SetBool = 17;
-    public const int SetFloat = 18;
-    public const int SetTrigger = 19;
-    public const int SplineFollower = 20;
-    public const int SplineFollowerCreatorService = 21;
-    public const int SplineFollowerObject = 22;
-    public const int SplineFollowerOptions = 23;
-    public const int TimeService = 24;
-    public const int Velocity = 25;
-    public const int View = 26;
-    public const int ViewService = 27;
+    public const int LevelMap = 7;
+    public const int LoggerService = 8;
+    public const int Movable = 9;
+    public const int Path = 10;
+    public const int PathEndReached = 11;
+    public const int PhysicsService = 12;
+    public const int Position = 13;
+    public const int PositionListener = 14;
+    public const int RedirectPath = 15;
+    public const int Rotation = 16;
+    public const int RotationListener = 17;
+    public const int SetBool = 18;
+    public const int SetFloat = 19;
+    public const int SetTrigger = 20;
+    public const int SplineFollower = 21;
+    public const int SplineFollowerCreatorService = 22;
+    public const int SplineFollowerObject = 23;
+    public const int SplineFollowerOptions = 24;
+    public const int TimeService = 25;
+    public const int Velocity = 26;
+    public const int View = 27;
+    public const int ViewService = 28;
 
-    public const int TotalComponents = 28;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
         "Animator",
@@ -47,10 +48,11 @@ public static class GameComponentsLookup {
         "Asset",
         "CrossFadeRequest",
         "Gravity",
+        "LevelMap",
         "LoggerService",
         "Movable",
         "Path",
-        "PathConfig",
+        "PathEndReached",
         "PhysicsService",
         "Position",
         "PositionListener",
@@ -78,10 +80,11 @@ public static class GameComponentsLookup {
         typeof(Asset),
         typeof(CrossFadeRequestComponent),
         typeof(GravityComponent),
+        typeof(LevelMapComponent),
         typeof(LoggerServiceComponent),
         typeof(MovableComponent),
         typeof(PathComponent),
-        typeof(PathConfigComponent),
+        typeof(PathEndReachedComponent),
         typeof(PhysicsServiceComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),

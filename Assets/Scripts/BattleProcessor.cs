@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Dreamteck.Splines;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,6 +20,7 @@ public sealed class GameSystems : Feature
         Add(new SplineFollowerSystem(contexts));
         Add(new SplineAnimationSystem(contexts));
         Add(new PathRedirectSystem(contexts));
+        Add(new PathEndReachSystem(contexts));
         
         Add(new AnimatorSystem(contexts));
     }
@@ -83,7 +85,9 @@ public class BattleProcessor : MonoBehaviour
     private void CreateTestEntities()
     {
         //StartCoroutine(SpawnWave());
-        CreateZombie(0 , 6);
+        //CreateZombie(0 , 6);
+        StartCoroutine(CreateWaveSignalCoroutine(0));
+        StartCoroutine(CreateWaveSignalCoroutine(13));
         //TestAllPaths();
     }
 
@@ -134,7 +138,32 @@ public class BattleProcessor : MonoBehaviour
         e_1.AddRotation(Quaternion.identity);
         e_1.needAnimator = true;
         e_1.AddAnimatorOptions(0);
-        e_1.AddPath(pathNumber , 0);
+        e_1.AddPath(pathNumber , 0 , PathBehaviourOnEnd.Stop);
+    }
+
+    private IEnumerator CreateWaveSignalCoroutine(int pathNumber)
+    {
+        int waveCnt = 5;
+        var waveSignalCoroutine = new WaitForSeconds(Random.Range(0 , 1f));
+        for (int i = 0; i < waveCnt; ++i)
+        {
+            CreateWaveSignal(pathNumber);
+            yield return waveSignalCoroutine;
+        }
+    }
+    private void CreateWaveSignal(int pathNumber)
+    {
+        var e_1 = Contexts.sharedInstance.game.CreateEntity();
+        e_1.needSplineFollower = true;
+        e_1.isMovable = true;
+        e_1.AddSplineFollowerOptions(15, new Vector3(0 , 0 ,0));
+        e_1.AddAsset("WaveSignal" ,"");
+        e_1.AddPosition(new Vector3());
+        e_1.AddRotation(Quaternion.identity);
+        e_1.AddPath(pathNumber, 0 , PathBehaviourOnEnd.Loop);
+        
+        e_1.needAnimator = true;
+        e_1.AddAnimatorOptions(0);
     }
 
     private void InitializeSystems()

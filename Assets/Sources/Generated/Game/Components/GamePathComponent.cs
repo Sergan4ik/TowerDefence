@@ -11,19 +11,21 @@ public partial class GameEntity {
     public PathComponent path { get { return (PathComponent)GetComponent(GameComponentsLookup.Path); } }
     public bool hasPath { get { return HasComponent(GameComponentsLookup.Path); } }
 
-    public void AddPath(int newPathNumber, int newCurrentStage) {
+    public void AddPath(int newPathNumber, int newCurrentStage, PathBehaviourOnEnd newBehaviourOnEnd) {
         var index = GameComponentsLookup.Path;
         var component = (PathComponent)CreateComponent(index, typeof(PathComponent));
         component.pathNumber = newPathNumber;
         component.currentStage = newCurrentStage;
+        component.behaviourOnEnd = newBehaviourOnEnd;
         AddComponent(index, component);
     }
 
-    public void ReplacePath(int newPathNumber, int newCurrentStage) {
+    public void ReplacePath(int newPathNumber, int newCurrentStage, PathBehaviourOnEnd newBehaviourOnEnd) {
         var index = GameComponentsLookup.Path;
         var component = (PathComponent)CreateComponent(index, typeof(PathComponent));
         component.pathNumber = newPathNumber;
         component.currentStage = newCurrentStage;
+        component.behaviourOnEnd = newBehaviourOnEnd;
         ReplaceComponent(index, component);
     }
 
