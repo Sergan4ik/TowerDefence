@@ -1,2 +1,2 @@
 # TowerDefence
-<b>Tower defence line project on ECS</b>
+<b>Tower defence like project on ECS</b>
