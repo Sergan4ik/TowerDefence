@@ -33,6 +33,7 @@ public sealed class PathEndReachSystem : ReactiveSystem<GameEntity>
                     entity.isPathEndReached = false;
                     break;
                 case PathBehaviourOnEnd.Stop:
+                    break;
                 default:
                     throw new NotImplementedException();
             }

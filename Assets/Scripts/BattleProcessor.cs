@@ -12,6 +12,7 @@ public sealed class GameSystems : Feature
         Add(new CreateAnimatorSystem(contexts, services.animatorCreatorService));
         
         Add(new RotationEventSystem(contexts));
+        Add(new HealthEventSystem(contexts));
         Add(new PositionEventSystem(contexts));
         
         Add(new MoveSystem(contexts, services.timeService));
@@ -23,6 +24,8 @@ public sealed class GameSystems : Feature
         Add(new PathEndReachSystem(contexts));
         
         Add(new AnimatorSystem(contexts));
+
+        Add(new DamageSystem(contexts));
     }
 }
 
@@ -85,9 +88,9 @@ public class BattleProcessor : MonoBehaviour
     private void CreateTestEntities()
     {
         //StartCoroutine(SpawnWave());
-        //CreateZombie(0 , 6);
-        StartCoroutine(CreateWaveSignalCoroutine(0));
-        StartCoroutine(CreateWaveSignalCoroutine(13));
+        CreateZombie(0 , 6);
+        //StartCoroutine(CreateWaveSignalCoroutine(0));
+        //StartCoroutine(CreateWaveSignalCoroutine(13));
         //TestAllPaths();
     }
 
@@ -133,12 +136,14 @@ public class BattleProcessor : MonoBehaviour
         e_1.needSplineFollower = true;
         e_1.isMovable = true;
         e_1.AddSplineFollowerOptions(7, new Vector3(offset , 0 ,0));
-        e_1.AddAsset("Char1", "");
+        e_1.AddAsset("Char1", "Prefabs/Units");
         e_1.AddPosition(new Vector3());
         e_1.AddRotation(Quaternion.identity);
         e_1.needAnimator = true;
         e_1.AddAnimatorOptions(0);
         e_1.AddPath(pathNumber , 0 , PathBehaviourOnEnd.Stop);
+        
+        e_1.AddHealth(100 , 100);
     }
 
     private IEnumerator CreateWaveSignalCoroutine(int pathNumber)
@@ -157,7 +162,7 @@ public class BattleProcessor : MonoBehaviour
         e_1.needSplineFollower = true;
         e_1.isMovable = true;
         e_1.AddSplineFollowerOptions(15, new Vector3(0 , 0 ,0));
-        e_1.AddAsset("WaveSignal" ,"");
+        e_1.AddAsset("WaveSignal" ,"Prefabs");
         e_1.AddPosition(new Vector3());
         e_1.AddRotation(Quaternion.identity);
         e_1.AddPath(pathNumber, 0 , PathBehaviourOnEnd.Loop);

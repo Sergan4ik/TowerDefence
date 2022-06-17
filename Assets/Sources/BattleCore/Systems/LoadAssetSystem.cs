@@ -27,7 +27,7 @@ public class LoadAssetSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            e.ReplaceView(_viewService.LoadAsset(_contexts, e, e.asset.name));
+            e.ReplaceView(_viewService.LoadAsset(_contexts, e, e.asset.name , e.asset.path));
         }
     }
 }

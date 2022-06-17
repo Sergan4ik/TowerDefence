@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class UnityViewService : IViewService
 {
-    public UnityGameView LoadAsset(Contexts contexts, IEntity entity, string assetName)
+    public UnityGameView LoadAsset(Contexts contexts, IEntity entity, string assetName , string assetPath)
     {
-        var viewGo = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/" + assetName));
+        var viewGo = GameObject.Instantiate(Resources.Load<GameObject>($"{assetPath}/{assetName}"));
+        
         if (viewGo != null) {
             var viewController = viewGo.GetComponent<UnityGameView>();
-            if(viewController != null) {
+            if(viewController != null) 
                 viewController.InitializeView(contexts, entity);
-            }
 
             var eventListeners = viewGo.GetComponents<IEventListener>();
-            foreach(var listener in eventListeners) {
+            
+            foreach(var listener in eventListeners) 
                 listener.RegisterListeners(entity);
-            }
 
             return viewController;
         }

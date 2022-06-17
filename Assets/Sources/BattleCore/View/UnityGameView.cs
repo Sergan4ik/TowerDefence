@@ -4,8 +4,8 @@ using Entitas.Unity;
 using UnityEngine;
 
 [RequireComponent(typeof(EntityLink))]
-public class UnityGameView : MonoBehaviour {
-
+public class UnityGameView : MonoBehaviour 
+{
     protected Contexts _contexts;
     protected GameEntity _entity;
 

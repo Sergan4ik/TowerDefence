@@ -14,31 +14,36 @@ public static class GameComponentsLookup {
     public const int AnimatorOptions = 3;
     public const int Asset = 4;
     public const int CrossFadeRequest = 5;
-    public const int Gravity = 6;
-    public const int LevelMap = 7;
-    public const int LoggerService = 8;
-    public const int Movable = 9;
-    public const int Path = 10;
-    public const int PathEndReached = 11;
-    public const int PhysicsService = 12;
-    public const int Position = 13;
-    public const int PositionListener = 14;
-    public const int RedirectPath = 15;
-    public const int Rotation = 16;
-    public const int RotationListener = 17;
-    public const int SetBool = 18;
-    public const int SetFloat = 19;
-    public const int SetTrigger = 20;
-    public const int SplineFollower = 21;
-    public const int SplineFollowerCreatorService = 22;
-    public const int SplineFollowerObject = 23;
-    public const int SplineFollowerOptions = 24;
-    public const int TimeService = 25;
-    public const int Velocity = 26;
-    public const int View = 27;
-    public const int ViewService = 28;
+    public const int Damage = 6;
+    public const int Dead = 7;
+    public const int DeadListener = 8;
+    public const int Gravity = 9;
+    public const int Health = 10;
+    public const int HealthListener = 11;
+    public const int LevelMap = 12;
+    public const int LoggerService = 13;
+    public const int Movable = 14;
+    public const int Path = 15;
+    public const int PathEndReached = 16;
+    public const int PhysicsService = 17;
+    public const int Position = 18;
+    public const int PositionListener = 19;
+    public const int RedirectPath = 20;
+    public const int Rotation = 21;
+    public const int RotationListener = 22;
+    public const int SetBool = 23;
+    public const int SetFloat = 24;
+    public const int SetTrigger = 25;
+    public const int SplineFollower = 26;
+    public const int SplineFollowerCreatorService = 27;
+    public const int SplineFollowerObject = 28;
+    public const int SplineFollowerOptions = 29;
+    public const int TimeService = 30;
+    public const int Velocity = 31;
+    public const int View = 32;
+    public const int ViewService = 33;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 34;
 
     public static readonly string[] componentNames = {
         "Animator",
@@ -47,7 +52,12 @@ public static class GameComponentsLookup {
         "AnimatorOptions",
         "Asset",
         "CrossFadeRequest",
+        "Damage",
+        "Dead",
+        "DeadListener",
         "Gravity",
+        "Health",
+        "HealthListener",
         "LevelMap",
         "LoggerService",
         "Movable",
@@ -79,7 +89,12 @@ public static class GameComponentsLookup {
         typeof(AnimatorOptionsComponent),
         typeof(Asset),
         typeof(CrossFadeRequestComponent),
+        typeof(DamageComponent),
+        typeof(DeadComponent),
+        typeof(DeadListenerComponent),
         typeof(GravityComponent),
+        typeof(HealthComponent),
+        typeof(HealthListenerComponent),
         typeof(LevelMapComponent),
         typeof(LoggerServiceComponent),
         typeof(MovableComponent),
