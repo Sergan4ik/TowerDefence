@@ -767,7 +767,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Standalone: DREAMTECK_SPLINES;ODIN_INSPECTOR;ODIN_INSPECTOR_3
+    Standalone: DREAMTECK_SPLINES;ODIN_INSPECTOR;ODIN_INSPECTOR_3;TEXTURE_GRAPH;POSEIDON;POSEIDON_URP;JUPITER;TG_SEARCHER;GRIFFIN;GRIFFIN_2021
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
