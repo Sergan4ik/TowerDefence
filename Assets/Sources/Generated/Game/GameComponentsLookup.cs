@@ -38,12 +38,15 @@ public static class GameComponentsLookup {
     public const int SplineFollowerCreatorService = 27;
     public const int SplineFollowerObject = 28;
     public const int SplineFollowerOptions = 29;
-    public const int TimeService = 30;
-    public const int Velocity = 31;
-    public const int View = 32;
-    public const int ViewService = 33;
+    public const int Targetable = 30;
+    public const int TargetingStrategy = 31;
+    public const int TargetsStash = 32;
+    public const int TimeService = 33;
+    public const int Velocity = 34;
+    public const int View = 35;
+    public const int ViewService = 36;
 
-    public const int TotalComponents = 34;
+    public const int TotalComponents = 37;
 
     public static readonly string[] componentNames = {
         "Animator",
@@ -76,6 +79,9 @@ public static class GameComponentsLookup {
         "SplineFollowerCreatorService",
         "SplineFollowerObject",
         "SplineFollowerOptions",
+        "Targetable",
+        "TargetingStrategy",
+        "TargetsStash",
         "TimeService",
         "Velocity",
         "View",
@@ -113,6 +119,9 @@ public static class GameComponentsLookup {
         typeof(SplineFollowerCreatorServiceComponent),
         typeof(SplineFollowerObjectComponent),
         typeof(SplineFollowerOptions),
+        typeof(TargetableComponent),
+        typeof(TargetingStrategyComponent),
+        typeof(TargetsStashComponent),
         typeof(TimeServiceComponent),
         typeof(VelocityComponent),
         typeof(ViewComponent),

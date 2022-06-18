@@ -1,7 +1,10 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Dreamteck.Splines;
+using Entitas;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using SerializeUtils = Utils.SerializationUtils;
 
 public sealed class GameSystems : Feature
 {
@@ -22,6 +25,8 @@ public sealed class GameSystems : Feature
         Add(new SplineAnimationSystem(contexts));
         Add(new PathRedirectSystem(contexts));
         Add(new PathEndReachSystem(contexts));
+
+        Add(new TargetFindSystem(contexts));
         
         Add(new AnimatorSystem(contexts));
 
@@ -128,6 +133,15 @@ public class BattleProcessor : MonoBehaviour
         int pathsCount = creator.AllPaths.Count;
         for(int i = 0; i < pathsCount; ++i)
             CreateZombie(0 , i);
+    }
+
+    private void CreateUnit()
+    {
+        var e = Contexts.sharedInstance.game.CreateEntity();
+        e.AddAsset("Unit1", "Prefabs/Units");
+        e.AddPosition(new Vector3(0 , 0 ,0));
+        e.AddTargetingStrategy(TargetStrategies.RadiusTargeting , SerializeUtils.SerializeFloat(5));
+        e.AddTargetsStash(1 , new List<Entity>());
     }
     
     private void CreateZombie(float offset , int pathNumber)

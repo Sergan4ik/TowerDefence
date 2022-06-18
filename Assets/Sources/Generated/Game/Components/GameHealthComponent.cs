@@ -11,19 +11,19 @@ public partial class GameEntity {
     public HealthComponent health { get { return (HealthComponent)GetComponent(GameComponentsLookup.Health); } }
     public bool hasHealth { get { return HasComponent(GameComponentsLookup.Health); } }
 
-    public void AddHealth(float newAmount, float newMaxCount) {
+    public void AddHealth(float newAmount, float newMaxAmount) {
         var index = GameComponentsLookup.Health;
         var component = (HealthComponent)CreateComponent(index, typeof(HealthComponent));
         component.amount = newAmount;
-        component.maxAmount = newMaxCount;
+        component.maxAmount = newMaxAmount;
         AddComponent(index, component);
     }
 
-    public void ReplaceHealth(float newAmount, float newMaxCount) {
+    public void ReplaceHealth(float newAmount, float newMaxAmount) {
         var index = GameComponentsLookup.Health;
         var component = (HealthComponent)CreateComponent(index, typeof(HealthComponent));
         component.amount = newAmount;
-        component.maxAmount = newMaxCount;
+        component.maxAmount = newMaxAmount;
         ReplaceComponent(index, component);
     }
 
