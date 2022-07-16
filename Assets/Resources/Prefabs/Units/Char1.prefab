@@ -346,6 +346,8 @@ GameObject:
   - component: {fileID: 2964696392819494427}
   - component: {fileID: -4911553734615168469}
   - component: {fileID: 1848175865389273688}
+  - component: {fileID: 1367027796589759113}
+  - component: {fileID: 7002928078787960897}
   m_Layer: 0
   m_Name: Char1
   m_TagString: Untagged
@@ -468,6 +470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d326f9a884e449aaaa5e25f4a79ddda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listenX: 1
+  listenY: 1
+  listenZ: 1
 --- !u!114 &-4911553734615168469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +499,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 6400170404000788188}
+--- !u!114 &1367027796589759113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939043154347595088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803ddf0b4e6a47188d5feecee6dc43d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 7002928078787960897}
+--- !u!114 &7002928078787960897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939043154347595088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0841f1c5504fa183c618df9826f86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityLink: {fileID: -2321081832081504524}
 --- !u!1 &5939061720285929772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6180,6 +6211,11 @@ PrefabInstance:
     - target: {fileID: 2161077409278590984, guid: bac38dc5447ba1643b53b9d790586db0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618893108903931820, guid: bac38dc5447ba1643b53b9d790586db0,
+        type: 3}
+      propertyPath: m_fontSize
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

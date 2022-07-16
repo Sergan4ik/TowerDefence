@@ -11,16 +11,20 @@ public partial class GameEntity {
     public DamageComponent damage { get { return (DamageComponent)GetComponent(GameComponentsLookup.Damage); } }
     public bool hasDamage { get { return HasComponent(GameComponentsLookup.Damage); } }
 
-    public void AddDamage(float newAmount) {
+    public void AddDamage(GameEntity newDealer, GameEntity newReceiver, float newAmount) {
         var index = GameComponentsLookup.Damage;
         var component = (DamageComponent)CreateComponent(index, typeof(DamageComponent));
+        component.dealer = newDealer;
+        component.receiver = newReceiver;
         component.amount = newAmount;
         AddComponent(index, component);
     }
 
-    public void ReplaceDamage(float newAmount) {
+    public void ReplaceDamage(GameEntity newDealer, GameEntity newReceiver, float newAmount) {
         var index = GameComponentsLookup.Damage;
         var component = (DamageComponent)CreateComponent(index, typeof(DamageComponent));
+        component.dealer = newDealer;
+        component.receiver = newReceiver;
         component.amount = newAmount;
         ReplaceComponent(index, component);
     }

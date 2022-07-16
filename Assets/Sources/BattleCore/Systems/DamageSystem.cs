@@ -13,19 +13,20 @@ public sealed class DamageSystem : ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.hasHealth && !entity.isDead;
+        return entity.damage.receiver.hasHealth && !entity.damage.receiver.isDead;
     }
 
     protected override void Execute(List<GameEntity> entities)
     {
-        foreach (var entity in entities)
+        foreach (var damageComponent in entities)
         {
-            float newHealth = Math.Max(entity.health.amount - entity.damage.amount , 0);
+            GameEntity receiver = damageComponent.damage.receiver;
+            float newHealth = Math.Clamp(receiver.health.amount - damageComponent.damage.amount , 0 , receiver.health.maxAmount);
             if (newHealth == 0)
-                entity.isDead = true;
-            entity.ReplaceHealth(newHealth , entity.health.maxAmount);
+                receiver.isDead = true;
+            receiver.ReplaceHealth(newHealth , receiver.health.maxAmount);
             
-            entity.RemoveDamage();
+            damageComponent.Destroy();
         }
     }
 }

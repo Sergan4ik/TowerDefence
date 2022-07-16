@@ -1,12 +1,14 @@
 ﻿using System;
 using Entitas;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UnityViewService : IViewService
 {
     public UnityGameView LoadAsset(Contexts contexts, IEntity entity, string assetName , string assetPath)
     {
-        var viewGo = GameObject.Instantiate(Resources.Load<GameObject>($"{assetPath}/{assetName}"));
+        var viewGo = GameObject.Instantiate(Resources.Load<GameObject>($"{assetPath}/{assetName}"),
+            new Vector3(0, -999, 0) , Quaternion.identity);
         
         if (viewGo != null) {
             var viewController = viewGo.GetComponent<UnityGameView>();

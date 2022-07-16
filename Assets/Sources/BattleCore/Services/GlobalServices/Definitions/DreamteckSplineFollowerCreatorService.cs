@@ -28,7 +28,15 @@ public class DreamteckSplineFollowerCreatorService : ISplineFollowerCreatorServi
         follower.spline = _pathGraph.splines.First(s => _contexts.game.levelMap.pathVariants[entity.path.pathNumber][0].Item2 == s.name);
         
         //TODO MAKE UNSUBSCRIBE SYSTEM
-        follower.onNode += passed => OnNodeReaction(entity , passed);
+        SplineTracer.JunctionHandler followerOnNodeReaction = passed => OnNodeReaction(entity , passed);
+        follower.onNode += followerOnNodeReaction;
+
+        entity.OnDestroyEntity += (e) =>
+        {
+            follower.onNode -= followerOnNodeReaction;
+            GameObject.Destroy(follower.gameObject);
+        };
+        
         return new DreamteckSplineFollowerObject(follower , entity , _contexts.game , _pathGraph);
     }
 

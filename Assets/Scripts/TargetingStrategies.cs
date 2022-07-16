@@ -13,6 +13,6 @@ public static class TargetStrategies
         Vector3 unitPosition = unit.position.value;
         Vector3 enemyPosition = enemy.position.value;
 
-        return (unitPosition - enemyPosition).sqrMagnitude > radius * radius;
+        return (unitPosition - enemyPosition).sqrMagnitude <= radius * radius;
     }
 }

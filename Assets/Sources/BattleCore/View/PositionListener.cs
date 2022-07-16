@@ -1,7 +1,8 @@
 ﻿using Entitas;
 using UnityEngine;
 
-public class PositionListener : MonoBehaviour, IEventListener, IPositionListener {
+public class PositionListener : MonoBehaviour, IEventListener, IPositionListener 
+{
     
     GameEntity _entity;
  
