@@ -11,7 +11,7 @@ public partial class GameEntity {
     public TargetsStashComponent targetsStash { get { return (TargetsStashComponent)GetComponent(GameComponentsLookup.TargetsStash); } }
     public bool hasTargetsStash { get { return HasComponent(GameComponentsLookup.TargetsStash); } }
 
-    public void AddTargetsStash(int newMaxTargetsCount, System.Collections.Generic.List<Entitas.Entity> newTargets) {
+    public void AddTargetsStash(int newMaxTargetsCount, System.Collections.Generic.List<GameEntity> newTargets) {
         var index = GameComponentsLookup.TargetsStash;
         var component = (TargetsStashComponent)CreateComponent(index, typeof(TargetsStashComponent));
         component.maxTargetsCount = newMaxTargetsCount;
@@ -19,7 +19,7 @@ public partial class GameEntity {
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetsStash(int newMaxTargetsCount, System.Collections.Generic.List<Entitas.Entity> newTargets) {
+    public void ReplaceTargetsStash(int newMaxTargetsCount, System.Collections.Generic.List<GameEntity> newTargets) {
         var index = GameComponentsLookup.TargetsStash;
         var component = (TargetsStashComponent)CreateComponent(index, typeof(TargetsStashComponent));
         component.maxTargetsCount = newMaxTargetsCount;

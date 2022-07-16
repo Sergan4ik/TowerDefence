@@ -13,5 +13,10 @@ public sealed class TargetingStrategyComponent : IComponent
 public sealed class TargetsStashComponent : IComponent
 {
     public int maxTargetsCount;
-    public List<Entity> targets;
+    public List<GameEntity> targets;
+}
+
+public sealed class ShootingComponent : IComponent
+{
+    public IUnitAbility unitAbilityInstance;
 }
