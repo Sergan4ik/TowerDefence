@@ -20,9 +20,10 @@ public sealed class AnimatorObjectComponent : IComponent
 }
 
 public sealed class SetTriggerComponent : IComponent { public string triggerName; }
+
 public sealed class SetBoolComponent : IComponent 
-{ 
-    public string parameterName; 
+{
+    public string parameterName;
     public bool value;
 }
 
