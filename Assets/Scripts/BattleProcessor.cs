@@ -9,10 +9,10 @@ public class BattleProcessor : MonoBehaviour
 {
     [SerializeField] private PathSetup pathSetup;
     [SerializeField] private List<DefenderSpawnSettings> defenders;
-    
+
     private GameSystems _gameSystems;
-    private LogSystems _logSystems;
     private ServiceRegistrationSystems _serviceRegistration;
+    private LogSystems _logSystems;
     private EntitiesFactory _factory;
 
     private void Start()
@@ -50,17 +50,11 @@ public class BattleProcessor : MonoBehaviour
     private void CreateTestEntities()
     {
         StartCoroutine(SpawnWave());
-        //_factory.CreateZombie(0 , 6);
-        //_factory.CreateZombie(1 , 5);
-        //_factory.CreateZombie(-1.5f , 7);
-        //_factory.CreateUnit(defenders[0]);
         foreach (var unit in defenders)
         {
             _factory.CreateUnit(unit);
         }
-        //StartCoroutine(CreateWaveSignalCoroutine(0));
-        //StartCoroutine(CreateWaveSignalCoroutine(13));
-        //TestAllPaths();
+        _factory.CreateProjectile(Resources.Load<RigidbodyView>("Prefabs/Projectile1"));
     }
 
     IEnumerator SpawnWave()
@@ -105,7 +99,7 @@ public class BattleProcessor : MonoBehaviour
         var waveSignalCoroutine = new WaitForSeconds(Random.Range(0 , 1f));
         for (int i = 0; i < waveCnt; ++i)
         {
-            _factory.CreateWaveSignal(pathNumber);
+            _factory.CreateWaveFantom(pathNumber);
             yield return waveSignalCoroutine;
         }
     }

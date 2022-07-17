@@ -11,3 +11,12 @@ public sealed class MovableComponent : IComponent { }
 
 [FlagPrefix("use")]
 public sealed class GravityComponent : IComponent { }
+
+public interface ISyncPosition 
+{
+    Vector3 position { get; }
+}
+public class SyncPositionComponent : IComponent 
+{
+    public ISyncPosition value;
+}

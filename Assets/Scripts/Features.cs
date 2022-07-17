@@ -44,10 +44,14 @@ public sealed class GameSystems : Feature
         Add(new TargetFindSystem(contexts));
         Add(new TargetLookAtSystem(contexts));
 
-        Add(new ShootingSystem(contexts));
+        Add(new AbilityUseSystem(contexts));
 
         Add(new AnimatorSystem(contexts));
 
         Add(new DamageSystem(contexts));
+        Add(new RadiusDamageSystem(contexts));
+
+        Add(new ForceAddComponent(contexts));
+        Add(new SyncPositionSystem(contexts));
     }
 }

@@ -8,57 +8,66 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Animator = 0;
-    public const int AnimatorCreator = 1;
-    public const int AnimatorObject = 2;
-    public const int AnimatorOptions = 3;
-    public const int Asset = 4;
-    public const int CrossFadeRequest = 5;
-    public const int Damage = 6;
-    public const int Dead = 7;
-    public const int DeadListener = 8;
-    public const int Gravity = 9;
-    public const int Health = 10;
-    public const int HealthListener = 11;
-    public const int LevelMap = 12;
-    public const int LoggerService = 13;
-    public const int Movable = 14;
-    public const int Path = 15;
-    public const int PathEndReached = 16;
-    public const int PhysicsService = 17;
-    public const int Position = 18;
-    public const int PositionListener = 19;
-    public const int RedirectPath = 20;
-    public const int Rotation = 21;
-    public const int RotationListener = 22;
-    public const int SetBool = 23;
-    public const int SetFloat = 24;
-    public const int SetTrigger = 25;
-    public const int Shooting = 26;
-    public const int SplineFollower = 27;
-    public const int SplineFollowerCreatorService = 28;
-    public const int SplineFollowerObject = 29;
-    public const int SplineFollowerOptions = 30;
-    public const int Targetable = 31;
-    public const int TargetingStrategy = 32;
-    public const int TargetsStash = 33;
-    public const int TimeService = 34;
-    public const int Velocity = 35;
-    public const int View = 36;
-    public const int ViewService = 37;
+    public const int Ability = 0;
+    public const int Animator = 1;
+    public const int AnimatorCreator = 2;
+    public const int AnimatorObject = 3;
+    public const int AnimatorOptions = 4;
+    public const int Asset = 5;
+    public const int Collision = 6;
+    public const int CrossFadeRequest = 7;
+    public const int DamageAtRadius = 8;
+    public const int Damage = 9;
+    public const int Dead = 10;
+    public const int DeadListener = 11;
+    public const int Force = 12;
+    public const int Gravity = 13;
+    public const int Health = 14;
+    public const int HealthListener = 15;
+    public const int LevelMap = 16;
+    public const int LoggerService = 17;
+    public const int Movable = 18;
+    public const int Path = 19;
+    public const int PathEndReached = 20;
+    public const int PhysicsService = 21;
+    public const int Position = 22;
+    public const int PositionListener = 23;
+    public const int RedirectPath = 24;
+    public const int Rigidbody = 25;
+    public const int Rotation = 26;
+    public const int RotationListener = 27;
+    public const int SetBool = 28;
+    public const int SetFloat = 29;
+    public const int SetTrigger = 30;
+    public const int SplineFollower = 31;
+    public const int SplineFollowerCreatorService = 32;
+    public const int SplineFollowerObject = 33;
+    public const int SplineFollowerOptions = 34;
+    public const int SyncPosition = 35;
+    public const int Targetable = 36;
+    public const int TargetingStrategy = 37;
+    public const int TargetsStash = 38;
+    public const int TimeService = 39;
+    public const int Velocity = 40;
+    public const int View = 41;
+    public const int ViewService = 42;
 
-    public const int TotalComponents = 38;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
+        "Ability",
         "Animator",
         "AnimatorCreator",
         "AnimatorObject",
         "AnimatorOptions",
         "Asset",
+        "Collision",
         "CrossFadeRequest",
+        "DamageAtRadius",
         "Damage",
         "Dead",
         "DeadListener",
+        "Force",
         "Gravity",
         "Health",
         "HealthListener",
@@ -71,16 +80,17 @@ public static class GameComponentsLookup {
         "Position",
         "PositionListener",
         "RedirectPath",
+        "Rigidbody",
         "Rotation",
         "RotationListener",
         "SetBool",
         "SetFloat",
         "SetTrigger",
-        "Shooting",
         "SplineFollower",
         "SplineFollowerCreatorService",
         "SplineFollowerObject",
         "SplineFollowerOptions",
+        "SyncPosition",
         "Targetable",
         "TargetingStrategy",
         "TargetsStash",
@@ -91,15 +101,19 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AbilityComponent),
         typeof(AnimatorComponent),
         typeof(AnimatorCreatorComponent),
         typeof(AnimatorObjectComponent),
         typeof(AnimatorOptionsComponent),
         typeof(Asset),
+        typeof(CollisionComponent),
         typeof(CrossFadeRequestComponent),
+        typeof(DamageAtRadiusComponent),
         typeof(DamageComponent),
         typeof(DeadComponent),
         typeof(DeadListenerComponent),
+        typeof(ForceComponent),
         typeof(GravityComponent),
         typeof(HealthComponent),
         typeof(HealthListenerComponent),
@@ -112,16 +126,17 @@ public static class GameComponentsLookup {
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(RedirectPathComponent),
+        typeof(RigidbodyComponent),
         typeof(RotationComponent),
         typeof(RotationListenerComponent),
         typeof(SetBoolComponent),
         typeof(SetFloatComponent),
         typeof(SetTriggerComponent),
-        typeof(ShootingComponent),
         typeof(SplineFollowerComponent),
         typeof(SplineFollowerCreatorServiceComponent),
         typeof(SplineFollowerObjectComponent),
         typeof(SplineFollowerOptions),
+        typeof(SyncPositionComponent),
         typeof(TargetableComponent),
         typeof(TargetingStrategyComponent),
         typeof(TargetsStashComponent),

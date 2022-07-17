@@ -16,7 +16,7 @@ public sealed class TargetsStashComponent : IComponent
     public List<GameEntity> targets;
 }
 
-public sealed class ShootingComponent : IComponent
+public sealed class AbilityComponent : IComponent
 {
     public IUnitAbility unitAbilityInstance;
 }

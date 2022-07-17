@@ -5,22 +5,25 @@ public class DirectShot : IUnitAbility
     private readonly GameContext _gameContext;
     private readonly float _directDamage;
     private readonly float _fireRate; //bullets per second
-    private readonly ITimeService _timeService;
-    private float _lastShotTime;
+
+    public ICooldownBehaviour CooldownBehaviour => _cooldown;
+    private readonly TimeCooldown _cooldown;
 
     public DirectShot(GameContext gameContext, float directDamage , float fireRate , ITimeService timeService)
     {
         _gameContext = gameContext;
         _directDamage = directDamage;
         _fireRate = fireRate;
-        _timeService = timeService;
-        _lastShotTime = -2 * fireRate;
+
+        _cooldown = new TimeCooldown(1 / _fireRate, timeService);
     }
-    public void PerformShot(GameEntity unit, List<GameEntity> targets)
+
+    public void UseAbility(GameEntity unit, List<GameEntity> targets)
     {
         foreach (var target in targets)
         {
-            _gameContext.CreateEntity().AddDamage(unit, target, _directDamage);
+            // _gameContext.CreateEntity().AddDamage(unit, target, _directDamage);
+            _gameContext.CreateEntity().AddDamageAtRadius(unit, target.position.value, 5, _directDamage);
         }
 
         if (unit.hasAnimatorObject)
@@ -28,9 +31,6 @@ public class DirectShot : IUnitAbility
             unit.AddSetTrigger("Shoot");
             unit.AddSetFloat("Shoot_speed", _fireRate);
         }
-
-        _lastShotTime = _timeService.time;
     }
-
-    public bool CanShoot(GameEntity unit) => (_timeService.time - _lastShotTime) >= 1 / _fireRate;
+    public bool CanUseAbility(GameEntity unit) => !CooldownBehaviour.InCooldown;
 }

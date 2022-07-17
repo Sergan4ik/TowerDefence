@@ -340,10 +340,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5942608852121136964}
   - component: {fileID: 5997051765369200382}
-  - component: {fileID: -2203132447991627939}
   - component: {fileID: -2321081832081504524}
   - component: {fileID: -2055676248216283626}
-  - component: {fileID: 2964696392819494427}
   - component: {fileID: 1125567347650551987}
   m_Layer: 0
   m_Name: WaveSignal
@@ -418,18 +416,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-2203132447991627939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5939043154347595088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff6c42e0d78044529156c85a0cf97aae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-2321081832081504524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,18 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca77ea10e2f465dbaed214e18ecb761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2964696392819494427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5939043154347595088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d326f9a884e449aaaa5e25f4a79ddda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  listenRotataionX: 1
+  listenRotataionY: 1
+  listenRotataionZ: 1
 --- !u!114 &1125567347650551987
 MonoBehaviour:
   m_ObjectHideFlags: 0
