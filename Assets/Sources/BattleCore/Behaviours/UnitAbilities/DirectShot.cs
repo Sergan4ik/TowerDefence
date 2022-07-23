@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class DirectShot : IUnitAbility
 {
@@ -24,6 +25,7 @@ public class DirectShot : IUnitAbility
         {
             // _gameContext.CreateEntity().AddDamage(unit, target, _directDamage);
             _gameContext.CreateEntity().AddDamageAtRadius(unit, target.position.value, 5, _directDamage);
+            _gameContext.CreateEntity().AddCreateProjectile(unit.position.value ,new Vector3(0 , 1000 , 100));
         }
 
         if (unit.hasAnimatorObject)

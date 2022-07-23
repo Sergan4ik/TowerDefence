@@ -51,7 +51,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &5849647555233241427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90,9 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listenPosition: 0
+  interpolatePosition: 1
   listenRotationX: 0
   listenRotationY: 0
   listenRotationZ: 0
+  interpolateRotation: 1
 --- !u!1 &6842322476927562515
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,8 +30,8 @@ public sealed class RadiusDamageSystem : ReactiveSystem<GameEntity>
             {
                 if((target.position.value - damageComp.damagePoint).sqrMagnitude > damageComp.radius * damageComp.radius)
                     continue;
-                _contexts.game.CreateEntity().AddDamage(damageComp.dealer , target , damageComp.amount);
-                _contexts.log.CreateEntity().AddLogMessage($"Damage at {damageComp.damagePoint.ToString()}");
+                _contexts.ApplyDamage(damageComp.dealer , target , damageComp.amount);
+                _contexts.LogMessage($"Damage at {damageComp.damagePoint.ToString()}");
             }
             damageAtEntity.Destroy();
         }

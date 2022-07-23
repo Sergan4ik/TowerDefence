@@ -15,44 +15,45 @@ public static class GameComponentsLookup {
     public const int AnimatorOptions = 4;
     public const int Asset = 5;
     public const int Collision = 6;
-    public const int CrossFadeRequest = 7;
-    public const int DamageAtRadius = 8;
-    public const int Damage = 9;
-    public const int Dead = 10;
-    public const int DeadListener = 11;
-    public const int Force = 12;
-    public const int Gravity = 13;
-    public const int Health = 14;
-    public const int HealthListener = 15;
-    public const int LevelMap = 16;
-    public const int LoggerService = 17;
-    public const int Movable = 18;
-    public const int Path = 19;
-    public const int PathEndReached = 20;
-    public const int PhysicsService = 21;
-    public const int Position = 22;
-    public const int PositionListener = 23;
-    public const int RedirectPath = 24;
-    public const int Rigidbody = 25;
-    public const int Rotation = 26;
-    public const int RotationListener = 27;
-    public const int SetBool = 28;
-    public const int SetFloat = 29;
-    public const int SetTrigger = 30;
-    public const int SplineFollower = 31;
-    public const int SplineFollowerCreatorService = 32;
-    public const int SplineFollowerObject = 33;
-    public const int SplineFollowerOptions = 34;
-    public const int SyncPosition = 35;
-    public const int Targetable = 36;
-    public const int TargetingStrategy = 37;
-    public const int TargetsStash = 38;
-    public const int TimeService = 39;
-    public const int Velocity = 40;
-    public const int View = 41;
-    public const int ViewService = 42;
+    public const int CreateProjectile = 7;
+    public const int CrossFadeRequest = 8;
+    public const int DamageAtRadius = 9;
+    public const int Damage = 10;
+    public const int Dead = 11;
+    public const int DeadListener = 12;
+    public const int Force = 13;
+    public const int Gravity = 14;
+    public const int Health = 15;
+    public const int HealthListener = 16;
+    public const int LevelMap = 17;
+    public const int LoggerService = 18;
+    public const int Movable = 19;
+    public const int Path = 20;
+    public const int PathEndReached = 21;
+    public const int PhysicsService = 22;
+    public const int Position = 23;
+    public const int PositionListener = 24;
+    public const int RedirectPath = 25;
+    public const int Rigidbody = 26;
+    public const int Rotation = 27;
+    public const int RotationListener = 28;
+    public const int SetBool = 29;
+    public const int SetFloat = 30;
+    public const int SetTrigger = 31;
+    public const int SplineFollower = 32;
+    public const int SplineFollowerCreatorService = 33;
+    public const int SplineFollowerObject = 34;
+    public const int SplineFollowerOptions = 35;
+    public const int SyncPosition = 36;
+    public const int Targetable = 37;
+    public const int TargetingStrategy = 38;
+    public const int TargetsStash = 39;
+    public const int TimeService = 40;
+    public const int Velocity = 41;
+    public const int View = 42;
+    public const int ViewService = 43;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 44;
 
     public static readonly string[] componentNames = {
         "Ability",
@@ -62,6 +63,7 @@ public static class GameComponentsLookup {
         "AnimatorOptions",
         "Asset",
         "Collision",
+        "CreateProjectile",
         "CrossFadeRequest",
         "DamageAtRadius",
         "Damage",
@@ -106,8 +108,9 @@ public static class GameComponentsLookup {
         typeof(AnimatorCreatorComponent),
         typeof(AnimatorObjectComponent),
         typeof(AnimatorOptionsComponent),
-        typeof(Asset),
+        typeof(AssetComponent),
         typeof(CollisionComponent),
+        typeof(CreateProjectileComponent),
         typeof(CrossFadeRequestComponent),
         typeof(DamageAtRadiusComponent),
         typeof(DamageComponent),

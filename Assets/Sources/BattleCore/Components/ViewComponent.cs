@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-public sealed class Asset : IComponent
+public sealed class AssetComponent : IComponent
 {
     public string name;
     public string path;

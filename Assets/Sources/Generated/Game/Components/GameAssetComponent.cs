@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Asset asset { get { return (Asset)GetComponent(GameComponentsLookup.Asset); } }
+    public AssetComponent asset { get { return (AssetComponent)GetComponent(GameComponentsLookup.Asset); } }
     public bool hasAsset { get { return HasComponent(GameComponentsLookup.Asset); } }
 
     public void AddAsset(string newName, string newPath) {
         var index = GameComponentsLookup.Asset;
-        var component = (Asset)CreateComponent(index, typeof(Asset));
+        var component = (AssetComponent)CreateComponent(index, typeof(AssetComponent));
         component.name = newName;
         component.path = newPath;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class GameEntity {
 
     public void ReplaceAsset(string newName, string newPath) {
         var index = GameComponentsLookup.Asset;
-        var component = (Asset)CreateComponent(index, typeof(Asset));
+        var component = (AssetComponent)CreateComponent(index, typeof(AssetComponent));
         component.name = newName;
         component.path = newPath;
         ReplaceComponent(index, component);

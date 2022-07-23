@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using SerializeUtils = Utils.SerializationUtils;
@@ -13,8 +12,8 @@ public class BattleProcessor : MonoBehaviour
     private GameSystems _gameSystems;
     private ServiceRegistrationSystems _serviceRegistration;
     private LogSystems _logSystems;
-    private EntitiesFactory _factory;
 
+    private GameContext gameContext => Contexts.sharedInstance.game;
     private void Start()
     {
         Setup();
@@ -35,8 +34,6 @@ public class BattleProcessor : MonoBehaviour
             , new GraphCreatorService(pathSetup)
         );
 
-        _factory = new EntitiesFactory(sharedInstance);
-        
         _serviceRegistration = new ServiceRegistrationSystems(sharedInstance, services);
         _gameSystems = new GameSystems(sharedInstance , services);
         _logSystems = new LogSystems(sharedInstance , services);
@@ -52,9 +49,8 @@ public class BattleProcessor : MonoBehaviour
         StartCoroutine(SpawnWave());
         foreach (var unit in defenders)
         {
-            _factory.CreateUnit(unit);
+            gameContext.CreateUnit(unit);
         }
-        _factory.CreateProjectile(Resources.Load<RigidbodyView>("Prefabs/Projectile1"));
     }
 
     IEnumerator SpawnWave()
@@ -67,7 +63,7 @@ public class BattleProcessor : MonoBehaviour
         for (int i = 0; i < cnt; ++i)
         {
             float offset = Random.Range(-1, 1);
-            _factory.CreateZombie(offset , Random.Range(0 , 14));
+            gameContext.CreateZombie(offset , Random.Range(0 , 14));
 
             var rand = (int)Random.Range(0, 3) % 3;
             if (rand == 0)
@@ -90,7 +86,7 @@ public class BattleProcessor : MonoBehaviour
         var creator = new GraphCreatorService(pathSetup);
         int pathsCount = creator.AllPaths.Count;
         for(int i = 0; i < pathsCount; ++i)
-            _factory.CreateZombie(0 , i);
+            gameContext.CreateZombie(0 , i);
     }
 
     private IEnumerator CreateWaveSignalCoroutine(int pathNumber)
@@ -99,10 +95,11 @@ public class BattleProcessor : MonoBehaviour
         var waveSignalCoroutine = new WaitForSeconds(Random.Range(0 , 1f));
         for (int i = 0; i < waveCnt; ++i)
         {
-            _factory.CreateWaveFantom(pathNumber);
+            gameContext.CreateWaveFantom(pathNumber);
             yield return waveSignalCoroutine;
         }
     }
+
     private void InitializeSystems()
     {
         _serviceRegistration.Initialize();

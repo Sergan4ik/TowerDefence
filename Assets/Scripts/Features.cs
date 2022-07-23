@@ -27,7 +27,8 @@ public sealed class GameSystems : Feature
         Add(new LoadAssetSystem(contexts, services.viewService));
         Add(new CreateSplineFollowerObjectSystem(contexts, services.splineFollowerCreatorService));
         Add(new CreateAnimatorSystem(contexts, services.animatorCreatorService));
-
+        Add(new EntityCreationRequestSystem(contexts));
+        
         Add(new RotationEventSystem(contexts));
         Add(new HealthEventSystem(contexts));
         Add(new PositionEventSystem(contexts));
